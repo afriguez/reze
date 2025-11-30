@@ -6,4 +6,7 @@ adapter =
     _ -> Reze.LLM.Adapters.Deepseek
   end
 
-config :reze, llm_adapter: adapter
+config :reze,
+  llm_adapter: adapter,
+  deepseek_token: System.get_env("DEEPSEEK_API_KEY"),
+  deepseek_model: System.get_env("DEEPSEEK_API_MODEL")
