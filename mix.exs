@@ -21,7 +21,9 @@ defmodule Reze.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:anubis_mcp, "~> 0.16.0"}
+      {:anubis_mcp, "~> 0.16.0"},
+      {:httpoison, "~> 2.3.0"},
+      {:poison, "~> 6.0"}
     ]
   end
 end
