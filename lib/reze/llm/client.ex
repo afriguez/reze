@@ -1,6 +1,6 @@
 defmodule Reze.LLM.Client do
   @behaviour Reze.LLM.Adapter
 
-  def chat(prompt, opts \\ []), do: adapter().chat(prompt, opts)
+  def chat(messages, opts \\ []), do: adapter().chat(messages, opts)
   defp adapter, do: Application.get_env(:reze, :llm_adapter)
 end
