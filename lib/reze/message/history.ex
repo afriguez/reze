@@ -44,8 +44,6 @@ defmodule Reze.Message.History do
         :ets.first(@table)
         |> collect_old_keys(to_delete, [])
 
-      IO.inspect(oldest)
-
       Enum.each(oldest, &:ets.delete(@table, &1))
     end
   end
