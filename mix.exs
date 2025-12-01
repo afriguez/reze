@@ -24,7 +24,9 @@ defmodule Reze.MixProject do
     [
       {:anubis_mcp, "~> 0.16.0"},
       {:httpoison, "~> 2.3.0"},
-      {:poison, "~> 6.0"}
+      {:poison, "~> 6.0"},
+      {:plug, "~> 1.15"},
+      {:bandit, "~> 1.8"}
     ]
   end
 end
