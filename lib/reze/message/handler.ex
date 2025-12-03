@@ -1,8 +1,11 @@
 defmodule Reze.Message.Handler do
-  alias Reze.Message
+  alias Reze.Message.History
   alias Reze.LLM.Client
 
-  def handle(messages, opts) do
-    Client.chat(messages, opts)
+  def handle(message, opts) do
+    History.add(message)
+
+    History.all()
+    |> Client.chat(opts)
   end
 end
