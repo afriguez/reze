@@ -5,5 +5,11 @@ defmodule Reze.LLM.Adapter do
               messages :: list(Msg.User | Msg.System | Msg.Assistant),
               opts :: Keyword.t()
             ) ::
-              {:ok, response :: String.t()} | {:error, reason :: term()}
+              {:ok, response :: Msg.Assistant} | {:error, reason :: term()}
+
+  @callback chat!(
+              messages :: list(Msg.User | Msg.System | Msg.Assistant),
+              opts :: Keyword.t()
+            ) ::
+              response :: Msg.Assistant
 end
