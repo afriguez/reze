@@ -15,7 +15,7 @@ defmodule Reze.Message.History do
   end
 
   def add(message) do
-    GenServer.cast(__MODULE__, {:add, message})
+    GenServer.call(__MODULE__, {:add, message})
   end
 
   def all() do
@@ -25,13 +25,13 @@ defmodule Reze.Message.History do
   end
 
   @impl true
-  def handle_cast({:add, message}, %{max: max} = state) do
+  def handle_call({:add, message}, _from, %{max: max} = state) do
     id = System.system_time(:microsecond)
     :ets.insert(@table, {id, message})
 
     trim(max)
 
-    {:noreply, state}
+    {:reply,  :ok, state}
   end
 
   defp trim(max_messages) do
