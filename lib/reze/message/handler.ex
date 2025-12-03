@@ -6,6 +6,7 @@ defmodule Reze.Message.Handler do
     History.add(message)
 
     History.all()
-    |> Client.chat(opts)
+    |> Client.chat!(opts)
+    |> History.add()
   end
 end

@@ -15,7 +15,8 @@ defmodule Reze.Message.History do
   end
 
   def add(message) do
-    GenServer.call(__MODULE__, {:add, message})
+    :ok = GenServer.call(__MODULE__, {:add, message})
+    {:ok, message}
   end
 
   def all() do
