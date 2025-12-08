@@ -38,7 +38,7 @@ defmodule Reze.LLM.Adapters.Deepseek.API do
       end
 
     case Parser.extract_sync_response(decoded) do
-      {:ok, content} -> content
+      {:ok, content} -> %Reze.Message.Assistant{content: content}
       {:error, :bad_response} -> raise "Unexpected API response shape"
     end
   end
