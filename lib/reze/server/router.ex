@@ -18,7 +18,7 @@ defmodule Reze.Server.Router do
 
     {:ok, result} =
       %Message.User{content: content}
-      |> Handler.handle(opts)
+      |> Handler.handle()
 
     send_resp(conn, 200, Poison.encode!(result))
   end

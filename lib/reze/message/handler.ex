@@ -2,8 +2,6 @@ defmodule Reze.Message.Handler do
   alias Reze.Message.{History, Assistant}
   alias Reze.LLM.Client
 
-  def handle(message, stream?: true), do: handle_stream(message)
-
   def handle(message) do
     History.add(message)
 
@@ -11,6 +9,8 @@ defmodule Reze.Message.Handler do
     |> Client.chat!()
     |> History.add()
   end
+
+  def handle(message, stream?: true), do: handle_stream(message)
 
   def handle_stream(message) do
     History.add(message)
