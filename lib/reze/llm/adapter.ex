@@ -1,5 +1,4 @@
 defmodule Reze.LLM.Adapter do
-  alias Reze.LLM.Adapters.Deepseek.Stream
   alias Reze.Message, as: Msg
 
   @callback chat(messages :: list(Msg.User | Msg.System | Msg.Assistant)) ::
@@ -9,5 +8,5 @@ defmodule Reze.LLM.Adapter do
               response :: Msg.Assistant
 
   @callback chat_stream(messages :: list(Msg.User | Msg.System | Msg.Assistant)) ::
-              response :: Stream
+              response :: Stream.t()
 end
